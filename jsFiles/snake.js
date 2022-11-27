@@ -12,8 +12,6 @@ class Snake {
     }   
 
     moveSnake(keyCode){
-      console.log('x', this.x);
-      console.log('y', this.y);
       ctx.clearRect(this.x, this.y, this.width, this.height);
       switch(keyCode){
         case 37: //left

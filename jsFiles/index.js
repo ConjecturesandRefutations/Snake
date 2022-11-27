@@ -60,6 +60,16 @@ function startGame() {
   //Instantiate a new snake
   currentSnake = new Snake();
   currentSnake.drawSnake();
+  let randomFoodX = Math.floor(Math.random() * 680);
+  let randomFoodY = Math.floor(Math.random() * 480);
+  let randomFoodWidth = 20;
+  let randomFoodHeight = 20;
+  let newFood = new Food(
+      randomFoodX, 
+      randomFoodY, 
+      randomFoodWidth, 
+      randomFoodHeight);
+  currentGame.food.push(newFood);
        updateCanvas();// keeping track of the updates as the game unfolds
 
 }
@@ -69,45 +79,56 @@ function updateCanvas() {
   ctx.drawImage(background, 0, 0, myCanvas.width, myCanvas.height); // redraw the background
 
  currentSnake.drawSnake(); // redraw the snake at its current position
+ foodFrequency++;
 
  //Logic for colliding with the walls
 
 if ( currentSnake.x < 0 || currentSnake.x > 681
     || currentSnake.y < 0|| currentSnake.y > 480   ){
-        myCanvas.style.display = 'none'
-        info.style.display = 'none'
-        gameOver.style.display = '' 
+        endGame()
  }
 
 
-  requestAnimationFrame(updateCanvas);
+ 
+function detectCollision(food) {
+  return ((currentSnake.x < food.x + food.width) &&         // check left side of element 
+  (currentSnake.x + food.width > food.x) &&           // check right side
+  (currentSnake.y < food.y + food.height) &&         // check top side
+  (currentSnake.y + currentSnake.height > food.y));           // check bottom side
+}
+
+for(let i = 0; i<currentGame.food.length; i++) {
+  currentGame.food[i].drawFood();
+
+
+if (detectCollision(currentGame.food[i])) {
+  //Draw a piece of food
+  let randomFoodX = Math.floor(Math.random() * 680);
+  let randomFoodY = Math.floor(Math.random() * 480);
+  let randomFoodWidth = 20;
+  let randomFoodHeight = 20;
+  let newFood = new Food(
+      randomFoodX, 
+      randomFoodY, 
+      randomFoodWidth, 
+      randomFoodHeight);
+
+      currentGame.food.splice(i, 1);
+
+  currentGame.food.push(newFood);
+  currentGame.score++ 
+  document.querySelector('.score').innerText = currentGame.score
+} 
 }
 
 
 
-/*   if (obstaclesFrequency % 60 === 1) {
-      //Draw an obstacle
-      let randomObstacleX = 0;
-      let randomObstacleY = Math.floor(Math.random() * 410);
-	@@ -111,6 +132,22 @@ if ( currentSnake.x < 0 || currentSnake.x > 681
-      currentGame.obstacles.push(newObstacle);
-  }
-
-  for(let i = 0; i<currentGame.obstacles.length; i++) {
-      currentGame.obstacles[i].x += 3; 
-      currentGame.obstacles[i].drawObstacle();
-	@@ -131,14 +168,76 @@ if ( currentSnake.x < 0 || currentSnake.x > 681
-      } 
-    }
-
-    
-
-function detectCollision(obstacle) {
-  return ((currentSnake.x < obstacle.x + obstacle.width) &&         // check left side of element 
-  (currentSnake.x + obstacle.width > obstacle.x) &&           // check right side
-  (currentSnake.y < obstacle.y + obstacle.height) &&         // check top side
-  (currentSnake.y + currentSnake.height > obstacle.y));           // check bottom side
-
-    requestAnimationFrame(updateCanvas);
+function endGame(){
+myCanvas.style.display = 'none'
+info.style.display = 'none'
+gameOver.style.display = '' 
+document.querySelector('.finalScore').innerText = currentGame.score
 }
-} */
+
+requestAnimationFrame(updateCanvas);
+}

@@ -61,7 +61,24 @@ body{
     
       #game-over{
         font-size: 80px;
-        color: red;
+        color: blue;
         margin-left: 400px;
-        margin-top: 225px;
+        margin-top: 150px;
+      }
+
+      .try-again-button, .main-menu-button {
+        font-size: 30px;
+        color: green;
+        background: linear-gradient(
+        to bottom,
+        #ff0000 0%,
+        #000000 100%
+      );
+      color: #fff; 
+      padding: 20px 40px;
+      border: 0;
+      box-shadow: 30px;
+      border-radius: 5px;
+      margin-bottom: 0px;
+      cursor: pointer;
       }
