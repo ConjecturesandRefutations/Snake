@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake!</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+    <section id="opening-section">
+        <img src="./images/Cobra-Snake-Scary-PNG.png" alt="SNAKE!" id="snake">
+        <div id="intro-text">
+            <p>Grow your snake by eating the food! Avoid the walls and your own tail!</p>
+            <p>Use the <img src="./images/computer arrows.png" alt="arrow keys" id="arrows"> keys to move the snake</p>
+        <button id="start-button">StartGame</button>
+    </div>
+    </section>
+
+    <section id="info">
+        <div id="your-score">Score: <span class="score">0</span></div>
+    </section>
+
+    <section id="game-over">
+        <p>Game Over!</p>
+        <p>You Scored <span class="finalScore">0 </span>Points</p>
+    </section> 
+
+
+  <canvas id="canvas" width="700" height="500"></canvas> 
+
+  <script type="text/javascript" src="./jsFiles/index.js"></script>
+  <script type="text/javascript" src="./jsFiles/snake.js"></script>
+  <script type="text/javascript" src="./jsFiles/game.js"></script>
