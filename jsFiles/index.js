@@ -1,6 +1,8 @@
 let currentGame;
 let currentSnake;
 
+let isGameRunning = false;
+
 let foodFrequency = 0; // support the logic for generating obstacles
 
 let background = new Image();
@@ -42,10 +44,7 @@ window.onload = () => {
 
     startGame();
   };
-  document.onkeydown = (e) => {
-    let whereToGo = e.keyCode;
-    currentSnake.moveSnake(whereToGo);
-}
+
 };
 
 let restartButton = document.getElementsByClassName('try-again-button');
@@ -71,13 +70,20 @@ for (let i = 0 ; i < mainMenuButton.length; i++) {
   })  
 }
 
+
 function startGame() {
+
+  if (isGameRunning) {
+    return;
+  }
+  
+  isGameRunning = true;
 
   currentGame = new Game();
   ctx.drawImage(background, 0, 0,myCanvas.width,myCanvas.height); // draw background image
-
   //Instantiate a new snake
   currentSnake = new Snake();
+  currentDirection = null;
   currentSnake.drawSnake();
   let randomFoodX = Math.floor(Math.random() * 680);
   let randomFoodY = Math.floor(Math.random() * 480);
@@ -106,8 +112,6 @@ if ( currentSnake.x < 0 || currentSnake.x > 681
     || currentSnake.y < 0|| currentSnake.y > 480   ){
         endGame()
  }
-
-
  
  function detectCollision(food) {
   return (
@@ -148,6 +152,7 @@ myCanvas.style.display = 'none'
 info.style.display = 'none'
 gameOver.style.display = '' 
 document.querySelector('.finalScore').innerText = currentGame.score
+isGameRunning = false;
 }
 
 

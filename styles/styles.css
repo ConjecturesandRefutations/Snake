@@ -48,7 +48,8 @@ body{
     cursor: pointer;
     color: yellow;
     font-size: larger;
-        font-weight: bold;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
     }
     
     canvas{
@@ -86,6 +87,7 @@ body{
       border-radius: 5px;
       margin-bottom: 0px;
       cursor: pointer;
+      font-family: 'Poppins', sans-serif;
       }
 
       #startInstructions{
@@ -96,4 +98,8 @@ body{
       .finalScore{
         font-weight: 900;
         color: black;
+      }
+
+      .arrow{
+        font-size: 30px;
       }
