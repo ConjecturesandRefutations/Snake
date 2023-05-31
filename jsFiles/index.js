@@ -6,10 +6,6 @@ let foodFrequency = 0; // support the logic for generating obstacles
 let background = new Image();
 background.src = "./images/background snake.jpg";
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //Opening Area and Start Button
 
 const toggleButton = document.getElementById('start-button')
@@ -51,6 +47,29 @@ window.onload = () => {
     currentSnake.moveSnake(whereToGo);
 }
 };
+
+let restartButton = document.getElementsByClassName('try-again-button');
+for (let i = 0; i < restartButton.length; i++) {
+  restartButton[i].addEventListener('click', () => {
+    gameOver.style.display = 'none';
+    toggleOpening.style.display = 'none';
+    myCanvas.style.display = '';
+    info.style.display='';
+    currentGame.score=0;
+    document.querySelector('.score').innerText = currentGame.score
+    startGame();
+  });
+}
+
+
+let mainMenuButton = document.getElementsByClassName('main-menu-button')
+for (let i = 0 ; i < mainMenuButton.length; i++) {
+  mainMenuButton[i].addEventListener('click',  ()=>{
+    gameOver.style.display = 'none';
+    toggleOpening.style.display = ''
+    location.reload() 
+  })  
+}
 
 function startGame() {
 
@@ -121,8 +140,6 @@ if (detectCollision(currentGame.food[i])) {
 } 
 }
 
-
-
 function endGame(){
 myCanvas.style.display = 'none'
 info.style.display = 'none'
@@ -130,5 +147,10 @@ gameOver.style.display = ''
 document.querySelector('.finalScore').innerText = currentGame.score
 }
 
+
 requestAnimationFrame(updateCanvas);
 }
+
+
+
+
