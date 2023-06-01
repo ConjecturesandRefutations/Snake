@@ -127,6 +127,7 @@ for (let i = 0; i < currentGame.food.length; i++) {
 
   if (detectCollision(currentGame.food[i])) {
     // Generate a new piece of food
+    yummySound.play();
     let randomFoodX = Math.floor(Math.random() * 680);
     let randomFoodY = Math.floor(Math.random() * 480);
     let randomFoodWidth = 20;
@@ -146,12 +147,14 @@ for (let i = 0; i < currentGame.food.length; i++) {
     currentSnake.segments.push(newSegment);
   }
   if (!isGameRunning) {
+    tackleSound.play()
     endGame();
     return; // Exit the updateCanvas() function
   }
 }
 
 function endGame(){
+tackleSound.play()
 myCanvas.style.display = 'none'
 info.style.display = 'none'
 gameOver.style.display = '' 
