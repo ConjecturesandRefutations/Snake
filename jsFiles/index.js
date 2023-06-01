@@ -145,6 +145,10 @@ for (let i = 0; i < currentGame.food.length; i++) {
     let newSegment = new SnakeSegment(lastSegment.x, lastSegment.y, currentSnake.width, currentSnake.height);
     currentSnake.segments.push(newSegment);
   }
+  if (!isGameRunning) {
+    endGame();
+    return; // Exit the updateCanvas() function
+  }
 }
 
 function endGame(){

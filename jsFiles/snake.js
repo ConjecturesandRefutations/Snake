@@ -58,6 +58,14 @@ class Snake {
 
     // Draw the snake
     this.drawSnake();
+
+     // Collision detection with self
+     for (let i = 1; i < this.segments.length; i++) {
+      if (this.x === this.segments[i].x && this.y === this.segments[i].y) {
+        isGameRunning = false;
+        return; // Exit the moveSnake() function
+      }
+    }
   }
 }
 
