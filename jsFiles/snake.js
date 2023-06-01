@@ -134,5 +134,5 @@ function moveSnake() {
 
     if (isGameRunning) {
     requestAnimationFrame(moveSnake);
-  }}, 50);
+  }}, 32);
 }
