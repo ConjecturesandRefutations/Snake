@@ -132,15 +132,17 @@ body{
           max-width: 300px;
           max-height: 350px;
           margin-bottom: -300px;
+          margin-left: 50px;
         }
         #opening-section{
         display: flex;
       flex-direction: column;
-            margin-left: 50px;
+           padding-bottom: 100%;
         }
         #intro-text{
           position: absolute;
           top: 250px;
+          margin-left: 50px;
           }
           #start-button{
             margin-top: 0;
