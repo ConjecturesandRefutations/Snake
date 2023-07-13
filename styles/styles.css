@@ -148,7 +148,9 @@ body{
             margin-top: 0;
           }
       } 
-
+      .difficulty{
+        color: lightgreen;
+      }
       @media (max-width: 1111px) {
         canvas{
       position: relative;

@@ -94,10 +94,15 @@ function startGame() {
       randomFoodY, 
       randomFoodWidth, 
       randomFoodHeight);
-  currentGame.food.push(newFood);
+      currentGame.food.push(newFood);
        updateCanvas();// keeping track of the updates as the game unfolds
 
+
+       
 }
+
+
+
 
 function updateCanvas() {
   ctx.clearRect(0, 0, 500, 700); // clear canvas
