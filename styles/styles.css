@@ -70,6 +70,7 @@ body{
       font-weight: bold;
       color: red;
       margin-top: 30px;
+      margin-left: 10px;
       }
     
       #game-over{
@@ -122,6 +123,10 @@ body{
       #difficulty{
         color: yellow;
       }
+      #difficultyDisplay{
+        position: absolute;
+        bottom: 40px;
+      }
 
       @media (max-width: 650px) {
         #snake{
@@ -166,5 +171,8 @@ body{
         canvas{
       position: relative;
       margin-left: 0;
+        }
+        #difficultyDisplay{
+          position: relative;
         }
       } 
