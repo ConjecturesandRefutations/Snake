@@ -29,6 +29,7 @@ info.style.display = 'none'
 const gameOver = document.getElementById('game-over')
 gameOver.style.display = 'none' 
 
+
 //Start Button
 
 window.onload = () => {
@@ -72,16 +73,15 @@ for (let i = 0 ; i < mainMenuButton.length; i++) {
 
 
 function startGame() {
-
   if (isGameRunning) {
     return;
   }
-  
+
   isGameRunning = true;
 
   currentGame = new Game();
-  ctx.drawImage(background, 0, 0,myCanvas.width,myCanvas.height); // draw background image
-  //Instantiate a new snake
+  ctx.drawImage(background, 0, 0, myCanvas.width, myCanvas.height); // draw background image
+  // Instantiate a new snake
   currentSnake = new Snake();
   currentDirection = null;
   currentSnake.drawSnake();
@@ -89,17 +89,11 @@ function startGame() {
   let randomFoodY = Math.floor(Math.random() * 480);
   let randomFoodWidth = 20;
   let randomFoodHeight = 20;
-  let newFood = new Food(
-      randomFoodX, 
-      randomFoodY, 
-      randomFoodWidth, 
-      randomFoodHeight);
-      currentGame.food.push(newFood);
-       updateCanvas();// keeping track of the updates as the game unfolds
-
-
-       
+  let newFood = new Food(randomFoodX, randomFoodY, randomFoodWidth, randomFoodHeight);
+  currentGame.food.push(newFood);
+  updateCanvas(); // keeping track of the updates as the game unfolds
 }
+
 
 
 
@@ -150,6 +144,14 @@ for (let i = 0; i < currentGame.food.length; i++) {
     let lastSegment = currentSnake.segments[currentSnake.segments.length - 1];
     let newSegment = new SnakeSegment(lastSegment.x, lastSegment.y, currentSnake.width, currentSnake.height);
     currentSnake.segments.push(newSegment);
+
+   /* // Make the snake grow by adding multiple segments
+   for (let j = 0; j < 3; j++) {
+    let lastSegment = currentSnake.segments[currentSnake.segments.length - 1];
+    let newSegment = new SnakeSegment(lastSegment.x, lastSegment.y, currentSnake.width, currentSnake.height);
+    currentSnake.segments.push(newSegment);
+  } */
+
   }
   if (!isGameRunning) {
     tackleSound.play()

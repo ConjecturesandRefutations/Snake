@@ -14,6 +14,24 @@
             <p>Grow your snake by eating the food! Avoid the walls and your own tail!</p>
             <p>Use the <img src="./images/computer arrows.png" alt="arrow keys" id="arrows"> keys to move the snake</p>
         <button id="start-button">Start Game</button>
+        <br/><br/>
+
+
+        <div id="selectDifficulty">
+
+            <h3>Select Difficulty</h3>
+
+            <input class="checkbox" type="checkbox" name="option" id="easy" value="easy" onclick="uncheckOthers(this)" />
+            <label for="easy">Easy</label>
+            <br />
+            <input class="checkbox" type="checkbox" name="option" id="medium" value="medium" onclick="uncheckOthers(this)" checked />
+            <label for="medium">Medium</label>
+            <br />
+            <input class="checkbox" type="checkbox" name="option" id="hard" value="hard" onclick="uncheckOthers(this)" />
+            <label for="hard">Hard</label>            
+    
+        </div>
+
     </div>
     
     </section>
@@ -22,6 +40,8 @@
         <div id="your-score">Score: <span class="score">0</span> </div>
     
         <p id="startInstructions">Press any <span class="arrow">arrow</span> key to start!</p>
+
+        <p>Difficulty:<span class="difficulty"></span></p>
     </section>
 
     <section id="game-over">

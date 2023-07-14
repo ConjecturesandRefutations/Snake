@@ -1,4 +1,4 @@
-function uncheckOthers(checkbox) {
+function uncheckOthers(checkbox, currentGame) {
   var checkboxes = document.getElementsByName('option');
   checkboxes.forEach(function (element) {
     if (element !== checkbox) {
@@ -6,15 +6,8 @@ function uncheckOthers(checkbox) {
     }
   });
 
-}
-if (checkbox.checked) {
-  if (checkbox.id === 'option1') {
-    currentGame.difficulty = 'easy';
-  } else if (checkbox.id === 'option2') {
-    currentGame.difficulty = 'medium';
-  } else if (checkbox.id === 'option3') {
-    currentGame.difficulty = 'hard';
-  }
+  checkbox.checked = true; // Ensure the clicked checkbox remains checked
+  currentGame.difficulty = checkbox.value; // Set the selected difficulty in the game object
 }
 
-console.log(currentGame.difficulty)
+console.log(checkbox)
