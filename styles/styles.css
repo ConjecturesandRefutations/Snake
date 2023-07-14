@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@200&display=swap');
 
+html, body{
+  height: 100%;
+}
+
 body{
     background-color: green;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
     }
     
     #snake {
@@ -111,6 +116,13 @@ body{
         color: yellow;
       }
 
+      #selectDifficulty{
+        color: greenyellow;
+      }
+      #difficulty{
+        color: yellow;
+      }
+
       @media (max-width: 650px) {
         #snake{
          margin-left: 0;
@@ -148,9 +160,8 @@ body{
             margin-top: 0;
           }
       } 
-      .difficulty{
-        color: lightgreen;
-      }
+
+    
       @media (max-width: 1111px) {
         canvas{
       position: relative;

@@ -1,11 +1,27 @@
 class Snake {
-  constructor() {
+  constructor(currentDifficulty) {
     this.x = 231;
     this.y = 300;
     this.width = 20;
     this.height = 20;
     this.segments = [new SnakeSegment(this.x, this.y, this.width, this.height)];
+    this.currentDifficulty = currentDifficulty;
+    this.speed = this.getSpeedFromDifficulty(currentDifficulty);
   }
+  
+  getSpeedFromDifficulty(currentDifficulty) {
+    if (currentDifficulty === 'easy') {
+      return 50;
+    } else if (currentDifficulty === 'medium') {
+      return 32;
+    } else if (currentDifficulty === 'hard') {
+      return 20;
+    }
+    // Default speed if the difficulty is not recognized
+    return 32;
+  }
+
+
 
   drawSnake() {
     ctx.fillStyle = 'darkGreen';
@@ -69,7 +85,6 @@ class Snake {
   }
 }
 
-
 class SnakeSegment {
   constructor(x, y, width, height) {
     this.x = x;
@@ -131,8 +146,10 @@ function moveSnake() {
     }
 
     currentSnake.moveSnake();
+    console.log(currentSnake.segments.length)
+
 
     if (isGameRunning) {
     requestAnimationFrame(moveSnake);
-  }}, 32);
+  }}, currentSnake.speed);
 }
