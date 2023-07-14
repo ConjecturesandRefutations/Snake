@@ -111,6 +111,13 @@ body{
         color: yellow;
       }
 
+      #selectDifficulty{
+        color: greenyellow;
+      }
+      #difficulty{
+        color: yellow;
+      }
+
       @media (max-width: 650px) {
         #snake{
          margin-left: 0;
@@ -148,9 +155,8 @@ body{
             margin-top: 0;
           }
       } 
-      .difficulty{
-        color: lightgreen;
-      }
+
+    
       @media (max-width: 1111px) {
         canvas{
       position: relative;

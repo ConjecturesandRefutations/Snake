@@ -12,16 +12,33 @@
         <img src="./images/Cobra-Snake-Scary-PNG.png" alt="SNAKE!" id="snake">
         <div id="intro-text">
             <p>Grow your snake by eating the food! Avoid the walls and your own tail!</p>
-            <p>Use the <img src="./images/computer arrows.png" alt="arrow keys" id="arrows"> keys to move the snake</p>
+            <p>Use the <img src="./images/computer arrows.png" alt="arrow keys" id="arrows"> keys to move the snake</p><br/><br/>
+        
+        <div id="selectDifficulty">
+            <h3>Select Difficulty</h3>
+            <h4>The harder the difficulty, the faster the snake moves and the more it grows upon eating.</h4>
+            <input type="checkbox" id="easy" name="difficulty" value="easy" onclick="handleDifficultyChange(event)">
+            <label for="easy">Easy</label>
+          
+            <input type="checkbox" id="medium" name="difficulty" value="medium" checked onclick="handleDifficultyChange(event)">
+            <label for="medium">Medium</label>
+          
+            <input type="checkbox" id="hard" name="difficulty" value="hard" onclick="handleDifficultyChange(event)">
+            <label for="hard">Hard</label>
+        </div>
+          
         <button id="start-button">Start Game</button>
-    </div>
     
+
+    </div>
     </section>
 
     <section id="info">
         <div id="your-score">Score: <span class="score">0</span> </div>
     
         <p id="startInstructions">Press any <span class="arrow">arrow</span> key to start!</p>
+
+        <p id="difficultyDisplay">Difficulty: <span id="difficulty">Medium</span></p>
     </section>
 
     <section id="game-over">
@@ -40,6 +57,5 @@
   <script type="text/javascript" src="./jsFiles/Food.js"></script>
   <script type="text/javascript" src="./jsFiles/game.js"></script>
   <script type="text/javascript" src="./jsFiles/Audio.js"></script>
-  <script type="text/javascript" src="./jsFiles/Difficulty.js"></script>
 
   </body>

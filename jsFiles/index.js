@@ -29,9 +29,38 @@ info.style.display = 'none'
 const gameOver = document.getElementById('game-over')
 gameOver.style.display = 'none' 
 
+//Select Difficulty
+
+let currentDifficulty = "medium";
+
+const difficultyDisplay = document.getElementById('difficulty');
+
+// Add event listeners for difficulty checkboxes
+const difficultyCheckboxes = document.querySelectorAll('input[name="difficulty"]');
+difficultyCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', handleDifficultyChange);
+});
+
+
+function handleDifficultyChange(event) {
+  if (event.target.checked) {
+    currentDifficulty = event.target.value;
+    // Uncheck other checkboxes
+    const checkboxes = document.querySelectorAll('input[name="difficulty"]');
+    checkboxes.forEach((checkbox) => {
+      if (checkbox !== event.target) {
+        checkbox.checked = false;
+      }
+    });
+  }
+  difficulty.innerText = currentDifficulty;
+  console.log(currentDifficulty)
+} 
+
 //Start Button
 
 window.onload = () => {
+
     toggleButton.onclick = () => {
       if (toggleOpening.style.display === ''){
         toggleOpening.style.display = 'none';
@@ -80,9 +109,10 @@ function startGame() {
   isGameRunning = true;
 
   currentGame = new Game();
+  currentGame.difficulty = currentDifficulty;
   ctx.drawImage(background, 0, 0,myCanvas.width,myCanvas.height); // draw background image
   //Instantiate a new snake
-  currentSnake = new Snake();
+  currentSnake = new Snake(currentDifficulty);
   currentDirection = null;
   currentSnake.drawSnake();
   let randomFoodX = Math.floor(Math.random() * 680);
@@ -96,10 +126,9 @@ function startGame() {
       randomFoodHeight);
       currentGame.food.push(newFood);
        updateCanvas();// keeping track of the updates as the game unfolds
-
-
        
 }
+
 
 
 
@@ -147,9 +176,24 @@ for (let i = 0; i < currentGame.food.length; i++) {
     document.querySelector('.score').innerText = currentGame.score;
 
     // Make the snake grow by adding a new segment
+
     let lastSegment = currentSnake.segments[currentSnake.segments.length - 1];
+    if (currentDifficulty === 'easy'){
     let newSegment = new SnakeSegment(lastSegment.x, lastSegment.y, currentSnake.width, currentSnake.height);
     currentSnake.segments.push(newSegment);
+    } else if (currentDifficulty === 'medium'){
+      for (let j = 0; j < 3; j++) {
+        let lastSegment = currentSnake.segments[currentSnake.segments.length - 1];
+        let newSegment = new SnakeSegment(lastSegment.x, lastSegment.y, currentSnake.width, currentSnake.height);
+        currentSnake.segments.push(newSegment);
+      }
+    } else if (currentDifficulty === 'hard'){
+      for (let j = 0; j < 5; j++) {
+        let lastSegment = currentSnake.segments[currentSnake.segments.length - 1];
+        let newSegment = new SnakeSegment(lastSegment.x, lastSegment.y, currentSnake.width, currentSnake.height);
+        currentSnake.segments.push(newSegment);
+      }
+    }
   }
   if (!isGameRunning) {
     tackleSound.play()
