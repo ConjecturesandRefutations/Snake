@@ -101,11 +101,10 @@ for (let i = 0 ; i < mainMenuButton.length; i++) {
 
 
 function startGame() {
-
   if (isGameRunning) {
     return;
   }
-  
+
   isGameRunning = true;
 
   currentGame = new Game();
