@@ -21,8 +21,6 @@ class Snake {
     return 32;
   }
 
-
-
   drawSnake() {
     ctx.fillStyle = 'darkGreen';
     for (let segment of this.segments) {
@@ -147,7 +145,6 @@ function moveSnake() {
 
     currentSnake.moveSnake();
     console.log(currentSnake.segments.length)
-
 
     if (isGameRunning) {
     requestAnimationFrame(moveSnake);

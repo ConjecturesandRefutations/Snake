@@ -4,5 +4,6 @@ class Game {
         this.food = [],
         this.score = 0,
         this.difficulty=''
+        this.currentColor='blue'
     }
 }

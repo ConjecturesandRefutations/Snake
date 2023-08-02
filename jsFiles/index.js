@@ -41,7 +41,6 @@ difficultyCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', handleDifficultyChange);
 });
 
-
 function handleDifficultyChange(event) {
   if (event.target.checked) {
     currentDifficulty = event.target.value;
@@ -52,7 +51,15 @@ function handleDifficultyChange(event) {
         checkbox.checked = false;
       }
     });
+  } else {
+    // Ensure that at least one checkbox is always checked
+    const checkedCheckboxes = document.querySelectorAll('input[name="difficulty"]:checked');
+    if (checkedCheckboxes.length === 0) {
+      event.target.checked = true;
+    }
   }
+
+  
   difficulty.innerText = currentDifficulty;
   console.log(currentDifficulty)
 } 
@@ -89,7 +96,6 @@ for (let i = 0; i < restartButton.length; i++) {
   });
 }
 
-
 let mainMenuButton = document.getElementsByClassName('main-menu-button')
 for (let i = 0 ; i < mainMenuButton.length; i++) {
   mainMenuButton[i].addEventListener('click',  ()=>{
@@ -98,7 +104,6 @@ for (let i = 0 ; i < mainMenuButton.length; i++) {
     location.reload() 
   })  
 }
-
 
 function startGame() {
   if (isGameRunning) {
@@ -125,12 +130,7 @@ function startGame() {
       randomFoodHeight);
       currentGame.food.push(newFood);
        updateCanvas();// keeping track of the updates as the game unfolds
-       
 }
-
-
-
-
 
 function updateCanvas() {
   ctx.clearRect(0, 0, 500, 700); // clear canvas
@@ -159,8 +159,8 @@ for (let i = 0; i < currentGame.food.length; i++) {
   currentGame.food[i].drawFood();
 
   if (detectCollision(currentGame.food[i])) {
-    // Generate a new piece of food
     yummySound.play();
+    // Generate a new piece of food
     let randomFoodX = Math.floor(Math.random() * 680);
     let randomFoodY = Math.floor(Math.random() * 480);
     let randomFoodWidth = 20;
@@ -213,7 +213,3 @@ isGameRunning = false;
 
 requestAnimationFrame(updateCanvas);
 }
-
-
-
-
