@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="./styles/styles.css" />
 </head>
 <body>
+
     <section id="opening-section">
+        
         <img src="./images/Cobra-Snake-Scary-PNG.png" alt="SNAKE!" id="snake">
         <div id="intro-text">
             <p>Grow your snake by eating the food! Avoid the walls and your own tail!</p>
@@ -41,6 +43,13 @@
         <p id="startInstructions">Press any <span class="arrow">arrow</span> key to start!</p>
 
         <p id="difficultyDisplay">Difficulty: <span id="difficulty">Medium</span></p>
+        
+        <div class="circle-container">
+            <button class="arrow-button up">↑</button>
+            <button class="arrow-button down">↓</button>
+            <button class="arrow-button left">←</button>
+            <button class="arrow-button right">→</button>
+        </div>
     </section>
 
     <section id="game-over">
@@ -49,7 +58,6 @@
         <button class="try-again-button">Restart</button>
         <button class="main-menu-button">Main Menu</button> 
     </section> 
-
     
 
   <canvas id="canvas" width="700" height="500"></canvas> 
