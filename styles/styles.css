@@ -137,8 +137,8 @@ body{
       }
 
       .arrow-button {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
         background-color: #007BFF;
         color: white;
         border: none;
@@ -200,6 +200,7 @@ body{
         }
         #your-score{
           all: unset;
+          margin-left: 20px;
         }
         #snake{
           display: none;
@@ -218,7 +219,6 @@ body{
           top:20vh;
         }
         #info{
-          position: absolute;
           top: 0;
           margin-bottom: 10px;
           display: flex;
@@ -230,13 +230,18 @@ body{
         }
  
         .circle-container {
-          width: 200px;
-          height: 200px;
+          width: 180px;
+          height: 180px;
           border-radius: 50%;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          position: relative;
+          position: absolute;
+          bottom: 0%;
+          margin-bottom: -50px;
+          left: 50%;
+          transform: translate(-50%);  
       }
+ 
       } 

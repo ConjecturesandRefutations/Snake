@@ -120,7 +120,6 @@ function handleKeyUp(event) {
 }
 
 document.addEventListener('keydown', handleKeyDown);
-document.addEventListener('keyup', handleKeyUp);
 
 function moveSnake() {
   setTimeout(() => {
@@ -144,9 +143,55 @@ function moveSnake() {
     }
 
     currentSnake.moveSnake();
-    console.log(currentSnake.segments.length)
 
     if (isGameRunning) {
     requestAnimationFrame(moveSnake);
   }}, currentSnake.speed);
 }
+
+// Event listeners for the directional buttons on mobile devices
+const upButton = document.getElementById('up-button');
+const downButton = document.getElementById('down-button');
+const leftButton = document.getElementById('left-button');
+const rightButton = document.getElementById('right-button');
+
+// Function to change the snake's direction
+function changeDirection(keyCode) {
+  if (!currentDirection) {
+    // Set the initial direction
+    currentDirection = keyCode;
+    moveSnake();
+  } else {
+    // Set the next direction
+    nextDirection = keyCode;
+  }
+}
+
+// Event listeners for touchstart and click on the directional buttons
+upButton.addEventListener('touchstart', () => {
+  changeDirection(38); // up
+});
+upButton.addEventListener('click', () => {
+  changeDirection(38); // up
+});
+
+downButton.addEventListener('touchstart', () => {
+  changeDirection(40); // down
+});
+downButton.addEventListener('click', () => {
+  changeDirection(40); // down
+});
+
+leftButton.addEventListener('touchstart', () => {
+  changeDirection(37); // left
+});
+leftButton.addEventListener('click', () => {
+  changeDirection(37); // left
+});
+
+rightButton.addEventListener('touchstart', () => {
+  changeDirection(39); // right
+});
+rightButton.addEventListener('click', () => {
+  changeDirection(39); // right
+});
