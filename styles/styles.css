@@ -201,6 +201,7 @@ body{
         #your-score{
           all: unset;
           margin-left: 20px;
+          white-space: nowrap;
         }
         #snake{
           display: none;
