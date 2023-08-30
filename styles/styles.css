@@ -48,7 +48,7 @@ body{
       black
     );
     margin-top: 50px;
-        padding: 20px 40px;
+    padding: 20px 40px;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
@@ -178,6 +178,14 @@ body{
       margin-bottom: 5px;
     }
 
+    #selectDifficulty > p {
+      font-size: medium;
+    }
+
+    #selectDifficulty > h3 {
+      font-size: 20px;
+    }
+
       @media (max-width: 500px) {
         #game-over{
         font-size: 40px;
@@ -218,7 +226,7 @@ body{
           display: none;
         }
         #intro-text{
-          margin-top: 50px;
+          margin-top: 30px;
           margin-left: 50%;
           transform: translate(-50%);
         }
@@ -259,6 +267,14 @@ body{
           margin-top: -15px;
           left: 50%;
           transform: translate(-50%);  
+      }
+
+      .instructionsBreaks{
+        display: none;
+      }
+
+      #start-button{
+        margin-top: 20px;
       }
  
       } 
