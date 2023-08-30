@@ -167,6 +167,17 @@ body{
         right: 10px;
     }
 
+    .go-back{
+      position: absolute;
+      background-color: red;
+      bottom: 0;
+      right: 0;
+      cursor: pointer;
+      position: fixed;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+
       @media (max-width: 500px) {
         #game-over{
         font-size: 40px;
@@ -245,6 +256,7 @@ body{
           align-items: center;
           position: absolute;
           bottom: 0%;
+          margin-top: -15px;
           left: 50%;
           transform: translate(-50%);  
       }
