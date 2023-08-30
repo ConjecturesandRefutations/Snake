@@ -6,7 +6,7 @@ let isGameRunning = false;
 let foodFrequency = 0; // support the logic for generating obstacles
 
 let background = new Image();
-background.src = "./images/background snake.jpg";
+background.src = "./images/yellow-square.jpg";
 
 //Opening Area and Start Button
 
