@@ -239,7 +239,7 @@ body{
           align-items: center;
           position: absolute;
           bottom: 0%;
-          margin-bottom: -50px;
+          margin-bottom: -75px;
           left: 50%;
           transform: translate(-50%);  
       }
