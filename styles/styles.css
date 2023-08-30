@@ -199,6 +199,9 @@ body{
         .utility-buttons{
           display: flex;
           flex-direction: row;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
         }
       } 
 
