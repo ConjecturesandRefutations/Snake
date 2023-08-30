@@ -218,6 +218,7 @@ body{
           margin-left: 50%;
           transform: translate(-50%);
           top:20vh;
+          margin-top: -20px;
         }
         #info{
           top: 30px;
@@ -244,7 +245,6 @@ body{
           align-items: center;
           position: absolute;
           bottom: 0%;
-          margin-bottom: -35px;
           left: 50%;
           transform: translate(-50%);  
       }
