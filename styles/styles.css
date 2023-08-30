@@ -237,14 +237,14 @@ body{
           margin-left: 50%;
           transform: translate(-50%);
           top:20vh;
-          margin-top: -20px;
+          margin-top: -40px;
         }
         #info{
           top: 30px;
           display: flex;
           flex-direction: row;
           font-size: 20px;
-          margin-bottom: -40px;
+          margin-bottom: -80px;
         }
         #startInstructions{
           display: none;
@@ -278,3 +278,9 @@ body{
       }
  
       } 
+
+      @media (max-width: 400px){
+        #canvas  {
+          margin-top: -30px;
+        }
+      }
