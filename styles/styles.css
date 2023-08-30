@@ -186,12 +186,14 @@ body{
       font-size: 20px;
     }
 
-      @media (max-width: 500px) {
+      @media (max-width: 900px) {
         #game-over{
         font-size: 40px;
         }
         .try-again-button,.main-menu-button{
           font-size: 20px;
+          margin: 10px;
+          white-space: nowrap;
         }
       } 
 
@@ -276,7 +278,6 @@ body{
       #start-button{
         margin-top: 20px;
       }
- 
       } 
 
       @media (max-width: 400px){
