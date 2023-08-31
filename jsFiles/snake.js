@@ -164,6 +164,9 @@ function changeDirection(keyCode) {
   } else {
     // Set the next direction
     nextDirection = keyCode;
+
+    // Immediately move in the new direction on mobile controls
+    currentSnake.moveSnake();
   }
 }
 
