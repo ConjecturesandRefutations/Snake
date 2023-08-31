@@ -167,20 +167,6 @@ function changeDirection(keyCode) {
   }
 }
 
-function changeDirection(keyCode) {
-  if (!currentDirection) {
-    // Set the initial direction
-    currentDirection = keyCode;
-    moveSnake();
-  } else {
-    // Set the next direction
-    nextDirection = keyCode;
-
-    // Immediately move in the new direction on mobile controls
-    currentSnake.moveSnake();
-  }
-}
-
 // Event listeners for touchstart and click on the directional buttons
 upButton.addEventListener('touchstart', () => {
   changeDirection(38); // up
