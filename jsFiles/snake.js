@@ -164,6 +164,17 @@ function changeDirection(keyCode) {
   } else {
     // Set the next direction
     nextDirection = keyCode;
+  }
+}
+
+function changeDirection(keyCode) {
+  if (!currentDirection) {
+    // Set the initial direction
+    currentDirection = keyCode;
+    moveSnake();
+  } else {
+    // Set the next direction
+    nextDirection = keyCode;
 
     // Immediately move in the new direction on mobile controls
     currentSnake.moveSnake();
