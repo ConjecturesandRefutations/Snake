@@ -286,6 +286,15 @@ body{
       #start-button{
         margin-top: 20px;
       }
+
+      #opening-section{
+        background-image: url('/images/Cobra-Snake-Scary-PNG.png'); 
+        background-color: red;
+        background-size: 100% 100%;
+      }
+      #intro-text>p,#selectDifficulty>h3,#selectDifficulty>p,.options{
+        background-color: black; 
+      }
       } 
 
       @media (max-width: 400px){
